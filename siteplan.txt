@@ -1,0 +1,62 @@
+Pro Am League Site Plan
+
+## DB Schema
+
+teams
+-name
+-coach
+
+players
+-name
+-height
+-affiliation
+-team_id
+
+games
+-home_team_id
+-visitor_team_id
+
+
+player-games
+-player_id
+-game_id
+-points
+
+users
+-is_admin
+-email
+-password
+
+
+## Controllers
+
+Static Pages
+- home
+- stats
+- history
+- media
+- contact
+
+Team
+-index
+-show
+-(new)
+-(edit)
+-(destroy)
+
+Game
+-index(schedule)
+-show
+-new
+-edit
+-(destroy)
+
+Session
+-new
+-(destroy)
+
+(User)
+-new
+-edit
+-destroy
+-index

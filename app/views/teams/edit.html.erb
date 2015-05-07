@@ -1,0 +1,6 @@
+<h1>Edit <%= @team.name %></h1>
+
+<form class="team-form" action="<%= team_url(@team) %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <%= render partial: "form", locals: {action: "Edit", team: @team} %>
+</form>

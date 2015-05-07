@@ -1,0 +1,15 @@
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <label>Team Name:
+    <input type="text" name="team[name]" value="<%= @team.name %>">
+  </label>
+
+  <label>Coaches:
+    <input type="text" name="team[coaches]" value="<%= @team.coaches %>">
+  </label>
+
+  <label>Season:
+    <input type="number" name="team[year]" min="2015" value="<%= @team.year %>">
+  </label>
+
+  <button type="submit"><%= action %> Team</button>

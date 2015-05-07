@@ -1,0 +1,12 @@
+<h1>Teams</h1>
+<p><%= Time.now.year %> Season</p>
+
+<ul>
+  <% @teams.each do |team| %>
+  <li>
+    <h3><a href="<%= team_url(team) %>"><%= team.name %></a></h3>
+    <p>Coached by: <%= team.coaches %></p>
+    <p>Admin: <a href="<%= edit_team_url(team) %>">Edit Team</a></p>
+  </li>
+  <% end %>
+</ul>
