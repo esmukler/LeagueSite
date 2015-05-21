@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get "/admin", to: "static_pages#admin"
 
 
-  resources :teams
+  resources :teams do
+    member :players
+  end
 
 end
