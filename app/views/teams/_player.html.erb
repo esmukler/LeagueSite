@@ -1,0 +1,13 @@
+<!-- Does not work yet. -->
+<div class="players">
+  <% fields_for "team[player]", player do |player_form| %>
+    <p>
+      Player: <%= player_form.text_field :name %>
+    </p>
+  <% end %>
+  <% fields_for "team[player]", player do |player_form| %>
+    <p>
+      Player: <%= player_form.text_field :name %>
+    </p>
+  <% end %>
+</div>

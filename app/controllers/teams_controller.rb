@@ -2,23 +2,27 @@ class TeamsController < ApplicationController
 
   def index
     @teams = Team.where(year: Time.now.year)
-    render :index
   end
 
   def new
     @team = Team.new
-    render :new
+    # Not sure if this is right
+    @team.players.build
   end
 
   def create
-    @team = Team.new(team_params)
+    players_attrs = team_params.delete(:players_attributes)
+    @team = Team.new(year: Time.now.year)
 
-    if @team.save
-      render :show
-    else
-      flash[:notice].errors = @team.errors.full_messages
-      redirect_to :new
+    # rescue any errors?
+    @team.update(team_params)
+
+    players_attrs.values.each do |player_attrs|
+
+      # rescue any errors?
+      player = @team.players.create(player_attrs)
     end
+
   end
 
   def show
@@ -37,8 +41,7 @@ class TeamsController < ApplicationController
     if @team.update(team_params)
       render :show
     else
-      flash[:notice].errors = @team.errors.full_messages
-      redirect_to :edit
+      redirect_to team_url(@team)
     end
   end
 
@@ -51,7 +54,7 @@ class TeamsController < ApplicationController
   private
 
     def team_params
-      params.require(:team).permit(:name, :coaches, :year)
+      params.require(:team).permit!
     end
 
 end

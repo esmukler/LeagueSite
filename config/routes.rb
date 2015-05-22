@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
 
   resources :teams do
-    member :players
+    resources :players
   end
 
 end

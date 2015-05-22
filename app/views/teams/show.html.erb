@@ -4,5 +4,10 @@
 
 <h2>Roster:</h2>
 
+<% @team.players do |player| %>
+  <p><%= player.name (player.affiliation) %></p>
+<% end %>
+
+  
 
 <a href="<%= teams_url %>">All Teams</a>

@@ -1,5 +1,30 @@
 <h1>Add a New Team</h1>
 
-<form class="team-form" action="<%= teams_url %>" method="post">
-  <%= render partial: "form", locals: {action: "Add"} %>
-</form>
+<%= form_for @team do |f| %>
+
+  <div class="team-details">
+    <%= f.label :name, "Team Name:" %>
+    <%= f.text_field :name %>
+    <br>
+    <%= f.label :coaches, "Coached By:" %>
+    <%= f.text_field :coaches %>
+  </div>
+
+  <br><br>
+
+  <div class="players">
+    <!-- Need to be able to add more player inputs, start with 10, but with a button? -->
+    <%= f.fields_for :players do |player_f| %>
+      <%= player_f.label :name, "Player Name:" %>
+      <%= player_f.text_field :name %>
+      <br>
+      <%= player_f.label :affiliation, "Team Affiliation (St. Mary's, D-League, Europe, etc.):" %>
+      <%= player_f.text_field :affiliation %>
+    <% end %>
+    <br>
+  </div>
+
+
+  <%= f.submit %>
+
+<% end %>
