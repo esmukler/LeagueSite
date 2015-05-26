@@ -22,7 +22,7 @@ class TeamsController < ApplicationController
       # rescue any errors?
       player = @team.players.create(player_attrs)
     end
-
+    render :show
   end
 
   def show

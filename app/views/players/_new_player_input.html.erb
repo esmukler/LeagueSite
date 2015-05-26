@@ -1,0 +1,10 @@
+<div id="new-player-input">
+  <%= f.fields_for :players do |player_f| %>
+    <%= player_f.label :name, "Player Name:" %>
+    <%= player_f.text_field :name %>
+    <br>
+    <%= player_f.label :affiliation, "Team Affiliation (St. Mary's, D-League, Europe, etc.):" %>
+    <%= player_f.text_field :affiliation %>
+  <% end %>
+  <br><br>
+</div>

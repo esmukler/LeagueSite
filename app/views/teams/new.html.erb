@@ -13,18 +13,18 @@
   <br><br>
 
   <div class="players">
-    <!-- Need to be able to add more player inputs, start with 10, but with a button? -->
-    <%= f.fields_for :players do |player_f| %>
-      <%= player_f.label :name, "Player Name:" %>
-      <%= player_f.text_field :name %>
-      <br>
-      <%= player_f.label :affiliation, "Team Affiliation (St. Mary's, D-League, Europe, etc.):" %>
-      <%= player_f.text_field :affiliation %>
+    <% 2.times do %>
+      <%= render partial: "players/new_player_input", locals: {f: f} %>
     <% end %>
-    <br>
   </div>
 
+  <!-- TODO This does NOT pass all inputs to controller. Only the last ones. -->
+  <button class="add-player-input">More Players</button>
+
+  <br><br>
 
   <%= f.submit %>
 
 <% end %>
+
+<%= javascript_include_tag "teams/new.js" %>
