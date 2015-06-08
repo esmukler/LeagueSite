@@ -1,9 +1,7 @@
 (function() {
 
-  $(".add-player-input").click(function(event) {
-    event.preventDefault();
-
-    $(".players").append($("#new-player-input").first().html());
+  $(".teams.new").ready(function() {
+    alert("welcome to the new teams page");
   })
 
 })();
